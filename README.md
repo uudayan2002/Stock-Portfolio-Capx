@@ -70,4 +70,33 @@ public class StockServiceImpl implements StockService {
 ```bash
 docker-compose up --build
 ```
+Once the container is running, the frontend will be available at:
+```bash
+http://localhost:8085
+```
 
+## Frontend
+
+### Prerequisites
+To run the frontend locally, ensure you have:
+- Docker and Docker Compose installed on your system.
+
+### Running the Frontend
+1. Navigate to the client-portfolio directory:
+```bash
+cd stock-portfolio-app/client-portfolio
+```
+
+2. Build and run the frontend using Docker Compose:
+```bash
+docker-compose up --build
+```
+
+Once the container is running, the frontend will be available at:
+```bash
+http://localhost:5173
+```
+
+## Testing the Frontend
+- Open the app in your browser and explore its features.
+- Ensure the backend is running and reachable for API integration.
