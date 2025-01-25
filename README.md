@@ -23,16 +23,51 @@ The **Stock Portfolio App** is a full-stack application designed to help users m
 ### Prerequisites
 To run the backend locally, ensure you have:
 - **Docker** and **Docker Compose** installed on your system.
+- A Twelve Data API key. To obtain an API key, follow these steps:
+    - Go to **[Twelve Data API Key](https://www.twelvedata.com/signup)** and sign up for an account.
+    - Once signed in, navigate to the API Key section and copy your key
 
 ### Running the Backend
+1. Clone the repository:
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/stock-portfolio-app.git
-cd stock-portfolio-app/server-portfolio
+git clone https://github.com/uudayan2002/Stock-portfolio-Capx.git
+cd Stock-portfolio-Capx/server-portfolio
+```
 
-# Update the configuration:
-# Ensure your `application.yml` contains the correct API key for the Twelve Data API 
-# and other required environment variables.
+2. Update the configuration:
+    Add your Twelve Data API key in the docker-compose.yml file in the server-portfolio directory:
+```bash
+TWELVE_DATA_API_KEY: your-example-api-key-here # Replace with your actual API key
+```
 
-# Build and run the backend using Docker Compose
+3. Build and run the backend using Docker Compose:
+```bash
 docker-compose up --build
+```
+4. Manual API Key Injection: If the API key does not work via the docker-compose.yml, follow these steps:
+    - Open the file src/main/java/com/example/stock-portfolio/service/impl/StockServiceImpl.java.
+    - Add the @Value annotation to inject the API key:
+```bash
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StockServiceImpl implements StockService {
+
+    #@Value("${TWELVE_DATA_API_KEY}")
+    private final String apiKey = your-example-api-key-here; #Replace with your actual API key and remove the key from docker-compose.yml
+
+    // Rest of your service implementation
+    public StockServiceImpl() {
+        // Constructor where apiKey can be used
+        System.out.println("API Key: " + apiKey);  // Just to demonstrate usage (remove this line in production)
+    }
+
+    // Your methods that use apiKey
+}
+```
+5. Run the backend again:
+```bash
+docker-compose up --build
+```
+

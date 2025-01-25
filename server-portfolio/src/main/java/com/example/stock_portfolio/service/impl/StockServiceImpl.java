@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -33,7 +34,8 @@ public class StockServiceImpl implements StockService {
     private final RestTemplate restTemplate;
 
     // Inject API Key for Twelve Data
-    private final String apiKey = "d57f2107d0484502a18fe5fe666a278b";
+    @Value("${TWELVE_DATA_API_KEY}")
+    private final String apiKey;
 
     @Override
     public StockDto createStock(StockDto stockDto) {
