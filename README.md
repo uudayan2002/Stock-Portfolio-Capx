@@ -18,6 +18,18 @@ The **Stock Portfolio App** is a full-stack application designed to help users m
 
 ---
 
+### Deployed Site
+You can access the live version of the Stock Portfolio App at:
+**[Stock Portfolio App](https://portfoliostock.netlify.app/)**
+
+## Important Notes for Users:
+- Mixed Content Issue:
+    - The backend of this app is deployed over HTTP, while the frontend is served over HTTPS. Many modern browsers block HTTP requests from HTTPS pages due to security restrictions.
+    - To avoid this issue, allow insecure access to the site in your browser's settings:
+        - In Chrome, navigate to the address bar and click on the padlock icon, then click on "Site settings" and allow insecure content for the site.
+        - Alternatively, you can bypass this issue by using a secure connection (HTTPS) for the backend or configuring the frontend to communicate with the backend over HTTPS.
+- API Call Limit: The Twelve Data API has a limit of 8 API calls per minute. To avoid hitting this limit and ensure smooth functioning of the app, please do not refresh the page more than once within a minute.
+
 ## Backend
 
 ### Prerequisites
