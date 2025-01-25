@@ -7,9 +7,9 @@ services:
     ports:
       - "8085:8085"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://portfoliodb.cvmo8mei4xjk.ap-south-1.rds.amazonaws.com/portfoliodb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: NoPaswaard123
+      SPRING_DATASOURCE_URL: jdbc:postgresql://enter-postgres-server-link/enter-db-name # enter your db link(It should look like, localhost:5432) and your db name
+      SPRING_DATASOURCE_USERNAME: enter-user-name #enter your user name
+      SPRING_DATASOURCE_PASSWORD: enter-user-password #enter your user password
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       TWELVE_DATA_API_KEY: your-example-api-key-here # Replace with your actual API key
     depends_on:

@@ -30,14 +30,29 @@ You can access the live version of the Stock Portfolio App at:
         - Alternatively, you can bypass this issue by using a secure connection (HTTPS) for the backend or configuring the frontend to communicate with the backend over HTTPS.
 - API Call Limit: The Twelve Data API has a limit of 8 API calls per minute. To avoid hitting this limit and ensure smooth functioning of the app, please do not refresh the page more than once within a minute.
 
-## Backend
-
-### Prerequisites
-To run the backend locally, ensure you have:
+### Prerequisites to run the project locally:
+- **PostgreSQL** and **PGadmin** installed in your system and running.
 - **Docker** and **Docker Compose** installed on your system.
 - A Twelve Data API key. To obtain an API key, follow these steps:
     - Go to **[Twelve Data API Key](https://twelvedata.com/register)** and sign up for an account.
-    - Once signed in, navigate to the API Key section and copy your key
+    - Once signed in, navigate to the API Key section and copy your key.
+- Clone the repository:
+```bash
+git clone https://github.com/uudayan2002/Stock-portfolio-Capx.git
+```
+
+## Run PostgreSQL Database
+If you'd like to run the PostgreSQL database locally for the Stock Portfolio App, follow these steps:
+1. Ensure your docker-compose.yml file is configured with the correct PostgreSQL settings. You can use the following configuration:
+```bash
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://enter-postgres-server-link/enter-db-name # enter your db link(It should look like, localhost:5432) and your db name
+      SPRING_DATASOURCE_USERNAME: enter-user-name #enter your user name
+      SPRING_DATASOURCE_PASSWORD: enter-user-password #enter your user password
+```
+2. The backend service will connect to the PostgreSQL database server through the Docker network using the db service name, as defined in docker-compose.yml in the backend directory.
+
+## Backend
 
 ### Running the Backend
 1. Clone the repository:
@@ -88,10 +103,6 @@ http://localhost:8085
 ```
 
 ## Frontend
-
-### Prerequisites
-To run the frontend locally, ensure you have:
-- Docker and Docker Compose installed on your system.
 
 ### Running the Frontend
 1. Navigate to the client-portfolio directory:
