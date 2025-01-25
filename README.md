@@ -20,7 +20,7 @@ The **Stock Portfolio App** is a full-stack application designed to help users m
 
 ### Deployed Site
 You can access the live version of the Stock Portfolio App at:
-**[Stock Portfolio App](https://portfoliostock.netlify.app/)**
+**[Stock Portfolio App](https://portfoliostock.netlify.app/){:target="_blank"}**
 
 ## Important Notes for Users:
 - Mixed Content Issue:
