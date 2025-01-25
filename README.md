@@ -1,12 +1,12 @@
 # Stock Portfolio App
 
 ## Overview
-The **Stock Portfolio App** is a full-stack application designed to help users manage and track their stock investments efficiently. It consists of a **backend** built with Java (Spring Boot) and a **frontend** built with React (Vite). The app provides users with tools to manage their stock portfolios, view insights with performance graphs, and fetch live stock data from the **Twelve Data API**.
+The **Stock Portfolio App** is a full-stack application designed to help users manage and track their stock investments efficiently. It consists of a **backend** built with **Java (Spring Boot)** and a **frontend** built with **React (Vite)**. The app provides users with tools to manage their stock portfolios, view insights with performance graphs, and fetch live stock data from the **Twelve Data API**.
 
 ### Features
 - **Backend:**
-  - RESTful APIs for managing stock entities (CRUD operations).
-  - Integration with the Twelve Data API to fetch live stock prices.
+  - **RESTful APIs** for managing stock entities (CRUD operations).
+  - Integration with the **Twelve Data API** to fetch live stock prices.
   - Scheduled tasks for periodic stock price updates.
   - Exception handling for a seamless user experience.
 
