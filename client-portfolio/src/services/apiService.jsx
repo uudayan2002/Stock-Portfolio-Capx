@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://13.235.67.157:8085/api/stocks';
+const API_BASE_URL = 'http://localhost:8085/api/stocks';
 
 export const getAllStocks = async () => {
   try {
