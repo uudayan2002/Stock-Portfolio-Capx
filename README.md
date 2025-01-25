@@ -24,7 +24,7 @@ The **Stock Portfolio App** is a full-stack application designed to help users m
 To run the backend locally, ensure you have:
 - **Docker** and **Docker Compose** installed on your system.
 - A Twelve Data API key. To obtain an API key, follow these steps:
-    - Go to **[Twelve Data API Key](https://www.twelvedata.com/signup)** and sign up for an account.
+    - Go to **[Twelve Data API Key](https://twelvedata.com/register)** and sign up for an account.
     - Once signed in, navigate to the API Key section and copy your key
 
 ### Running the Backend
