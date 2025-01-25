@@ -27,7 +27,6 @@ You can access the live version of the Stock Portfolio App at:
     - The backend of this app is deployed over HTTP, while the frontend is served over HTTPS. Many modern browsers block HTTP requests from HTTPS pages due to security restrictions.
     - To avoid this issue, allow insecure access to the site in your browser's settings:
         - In Chrome, navigate to the address bar and click on the padlock icon, then click on "Site settings" and allow insecure content for the site.
-        - Alternatively, you can bypass this issue by using a secure connection (HTTPS) for the backend or configuring the frontend to communicate with the backend over HTTPS.
 - API Call Limit: The Twelve Data API has a limit of 8 API calls per minute. To avoid hitting this limit and ensure smooth functioning of the app, please do not refresh the page more than once within a minute.
 
 ### Prerequisites to run the project locally:
@@ -55,9 +54,8 @@ If you'd like to run the PostgreSQL database locally for the Stock Portfolio App
 ## Backend
 
 ### Running the Backend
-1. Clone the repository:
+1. Navigate to the server-portfolio directory:
 ```bash
-git clone https://github.com/uudayan2002/Stock-portfolio-Capx.git
 cd Stock-portfolio-Capx/server-portfolio
 ```
 
@@ -73,7 +71,7 @@ docker-compose up --build
 ```
 4. Manual API Key Injection: If the API key does not work via the docker-compose.yml, follow these steps:
     - Open the file src/main/java/com/example/stock-portfolio/service/impl/StockServiceImpl.java.
-    - Add the @Value annotation to inject the API key:
+    - Inject the API key manually into the code:
 ```bash
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -81,7 +79,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockServiceImpl implements StockService {
 
-    #@Value("${TWELVE_DATA_API_KEY}")
     private final String apiKey = your-example-api-key-here; #Replace with your actual API key and remove the key from docker-compose.yml
 
     // Rest of your service implementation
@@ -97,7 +94,7 @@ public class StockServiceImpl implements StockService {
 ```bash
 docker-compose up --build
 ```
-Once the container is running, the frontend will be available at:
+Once the container is running, the backend will be available at:
 ```bash
 http://localhost:8085
 ```
