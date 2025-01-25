@@ -1,31 +1,46 @@
+# Docker Compose configuration for the stock portfolio application
+
 version: '3.8'
 
 services:
+  # Application service
   app:
+    # Build the Docker image from the current directory
     build: .
+    # Set the container name for the application
     container_name: stock-portfolio-app
+    # Map port 8085 of the host to port 8085 of the container
     ports:
       - "8085:8085"
+    # Set environment variables for the application
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://enter-postgres-server-link/enter-db-name # enter your db link(It should look like, localhost:5432) and your db name
-      SPRING_DATASOURCE_USERNAME: enter-user-name #enter your user name
-      SPRING_DATASOURCE_PASSWORD: enter-user-password #enter your user password
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_URL: jdbc:postgresql://enter-postgres-server-link/enter-db-name # enter your db link (It should look like localhost:5432) and your db name
+      SPRING_DATASOURCE_USERNAME: enter-user-name # enter your user name
+      SPRING_DATASOURCE_PASSWORD: enter-user-password # enter your user password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update # Hibernate setting to update the schema automatically
       TWELVE_DATA_API_KEY: your-api-key-here # Replace with your actual API key
+    # Specify that the app depends on the database service
     depends_on:
       - db
 
+  # Database service using PostgreSQL
   db:
+    # Use the official PostgreSQL image with version 17
     image: postgres:17
+    # Set the container name for the database
     container_name: stock-portfolio-db
+    # Set environment variables for the PostgreSQL database
     environment:
-      POSTGRES_DB: stockdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: NoPaswaard123
+      POSTGRES_DB: stockdb # Database name
+      POSTGRES_USER: postgres # Database username
+      POSTGRES_PASSWORD: NoPaswaard123 # Database password
+    # Map port 5432 of the host to port 5432 of the container
     ports:
       - "5432:5432"
+    # Define a volume to persist the database data
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+# Define named volumes for persisting data
 volumes:
   postgres-data:

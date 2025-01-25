@@ -4,12 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
-@EnableScheduling
+@SpringBootApplication // This annotation marks the main class of a Spring Boot application
+@EnableScheduling // This annotation enables the scheduling of tasks in the application (e.g., to update stock prices)
 public class StockPortfolioApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StockPortfolioApplication.class, args);
-	}
+    // Main method which serves as the entry point for the Spring Boot application
+    public static void main(String[] args) {
+        // Runs the Spring Boot application by passing in the main application class and command-line arguments
+        SpringApplication.run(StockPortfolioApplication.class, args);
+    }
 
 }

@@ -1,13 +1,21 @@
 version: '3.8'
 
 services:
+  # Define the react-app service
   react-app:
+    # Build the container using the Dockerfile in the current context (.)
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: .  # The build context is the current directory
+      dockerfile: Dockerfile  # Use the Dockerfile in the current directory
+
+    # Map the container's port 5173 to the host machine's port 5173
     ports:
-      - "5173:5173"
+      - "5173:5173"  # Expose the React development server on port 5173
+
+    # Mount volumes to ensure code changes are reflected in the container
     volumes:
-      - .:/app
-      - /app/node_modules
-    command: npm run dev
+      - .:/app  # Mount the current directory to the /app directory inside the container
+      - /app/node_modules  # Mount the node_modules directory to persist dependencies
+
+    # Define the command to run the app in development mode
+    command: npm run dev  # Run the React app in development mode
